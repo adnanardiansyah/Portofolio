@@ -115,7 +115,7 @@
       <span class="font-mono text-[.7rem] tracking-[.14em] uppercase text-[#c8a96d]">Portfolio</span>
     </div>
     <h1 class="rv d1 font-serif font-black leading-[.93] tracking-[-0.03em] mb-5" style="font-size:clamp(3rem,6vw,6rem);">
-      Featured <em class="not-italic text-gold-gradient">Projects</em>
+      Karya &amp; <em class="not-italic text-gold-gradient">Proyek</em>
     </h1>
     <p class="rv d2 text-[#8888aa] text-base leading-[1.9] max-w-[520px]">Koleksi proyek yang telah saya bangun — dari SaaS platform hingga aplikasi AI dan analytics dashboard.</p>
   </div>
@@ -152,19 +152,25 @@
 
 <section id="main-content" tabindex="-1" class="relative z-10 py-24 px-10 md:px-20">
   <div class="max-w-[1280px] mx-auto">
-    <div class="rv flex gap-2 flex-wrap mb-8">
-      <button class="filter-btn on px-4 py-1.5 rounded-full font-mono text-[.72rem] tracking-[.08em] uppercase border border-white/[0.1] bg-transparent text-[#8888aa] cursor-pointer" data-filter="all">All</button>
+    <div class="project-toolbar">
+      <label class="project-search-label" for="projectSearch">Cari proyek
+        <input id="projectSearch" class="project-search" type="search" placeholder="Nama, teknologi, atau jenis proyek…" autocomplete="off" aria-controls="projectGrid">
+      </label>
+      <p id="projectCount" class="project-count" role="status" aria-live="polite">8 proyek</p>
+    </div>
+    <div class="rv flex gap-2 flex-wrap mb-8" role="group" aria-label="Kategori proyek">
+      <button class="filter-btn on px-4 py-1.5 rounded-full font-mono text-[.72rem] tracking-[.08em] uppercase border border-white/[0.1] bg-transparent text-[#8888aa] cursor-pointer" data-filter="all">Semua</button>
       <button class="filter-btn px-4 py-1.5 rounded-full font-mono text-[.72rem] tracking-[.08em] uppercase border border-white/[0.1] bg-transparent text-[#8888aa] cursor-pointer" data-filter="saas">SaaS</button>
       <button class="filter-btn px-4 py-1.5 rounded-full font-mono text-[.72rem] tracking-[.08em] uppercase border border-white/[0.1] bg-transparent text-[#8888aa] cursor-pointer" data-filter="web">Web App</button>
       <button class="filter-btn px-4 py-1.5 rounded-full font-mono text-[.72rem] tracking-[.08em] uppercase border border-white/[0.1] bg-transparent text-[#8888aa] cursor-pointer" data-filter="ai">AI</button>
-      <button class="filter-btn px-4 py-1.5 rounded-full font-mono text-[.72rem] tracking-[.08em] uppercase border border-white/[0.1] bg-transparent text-[#8888aa] cursor-pointer" data-filter="design">Design</button>
+      <button class="filter-btn px-4 py-1.5 rounded-full font-mono text-[.72rem] border border-white/[0.1] text-[#8888aa]" data-filter="mobile">Mobile</button>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div id="projectGrid" class="project-grid grid grid-cols-1 lg:grid-cols-2">
       <!-- SNAPNEXT -->
-      <div class="proj-card bg-[#10101e] border border-white/[0.06] rounded-xl overflow-hidden lg:col-span-2 rv d1" data-category="saas">
-        <div class="lg:grid lg:grid-cols-[1fr_1.2fr]">
-          <div class="h-[320px] overflow-hidden">
+      <div class="proj-card project-featured bg-[#10101e] border border-white/[0.06] rounded-xl overflow-hidden lg:col-span-2 rv d1" data-category="saas">
+        <div class="project-layout lg:grid lg:grid-cols-[1fr_1.2fr]">
+          <div class="project-preview">
             <div class="proj-thumb-inner w-full h-full flex items-center justify-center p-8" style="background:linear-gradient(135deg,#ede9fe 0%,#f3e8ff 50%,#fce7f3 100%);">
               <div class="max-w-[480px] w-full bg-white rounded-md overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)]" style="transform:perspective(600px) rotateX(2deg);">
                 <div class="flex items-center gap-1 px-2 py-1" style="background:#f0f0f0;">
@@ -194,7 +200,7 @@
               </div>
             </div>
           </div>
-          <div class="p-8 flex flex-col">
+          <div class="project-body">
             <div class="font-mono text-[.67rem] tracking-[.1em] text-[#5a5a78] mb-2">01 · Featured · SaaS</div>
             <h3 class="font-serif text-[1.3rem] font-semibold leading-tight mb-3">SnapNext — SaaS Photo Booth Platform</h3>
             <p class="text-[#8888aa] text-[.87rem] leading-[1.85] flex-1">Platform photo booth profesional all-in-one: pembayaran QRIS, silent printing, GIF engine, galeri digital, dan CMS multi-tenant untuk vendor di seluruh Indonesia.</p>
@@ -203,20 +209,17 @@
               <div class="text-[.77rem] text-[#5a5a78]"><strong class="block font-serif text-lg text-[#c8a96d]">50</strong> Outlets</div>
               <div class="text-[.77rem] text-[#5a5a78]"><strong class="block font-serif text-lg text-[#c8a96d]">99.9%</strong> Uptime</div>
             </div>
-            <div class="flex flex-wrap gap-1.5 mb-4">
+            <div class="project-tags flex flex-wrap">
               <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Next.js</span>
               <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">TypeScript</span>
               <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">QRIS</span>
               <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">SaaS</span>
               <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Multi-tenant</span>
             </div>
-            <div class="flex gap-4 pt-3 border-t border-white/[0.06]">
+            <div class="project-actions flex border-t border-white/[0.06]">
               <a href="https://photobox-saas-main-ews1.vercel.app/" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg> Live Demo
-              </a>
-              <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77A5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg> GitHub
-              </a>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>Lihat Demo</a>
+
             </div>
           </div>
         </div>
@@ -224,7 +227,7 @@
 
       <!-- ANALYTICS -->
       <div class="proj-card bg-[#10101e] border border-white/[0.06] rounded-xl overflow-hidden rv d2" data-category="web">
-        <div class="h-[250px] overflow-hidden">
+        <div class="project-preview">
           <div class="proj-thumb-inner w-full h-full flex items-center justify-center p-8" style="background:linear-gradient(160deg,#040d1c,#081428);">
             <div class="max-w-[320px] w-full bg-[#0d1117] rounded-md overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)]" style="transform:perspective(600px) rotateX(2deg);">
               <div class="flex items-center gap-1 px-2 py-1" style="background:#161b22;">
@@ -256,26 +259,23 @@
             </div>
           </div>
         </div>
-        <div class="p-6 flex flex-col flex-1">
+        <div class="project-body">
           <div class="font-mono text-[.67rem] tracking-[.1em] text-[#5a5a78] mb-2">02 · Web App</div>
           <h3 class="font-serif text-[1.2rem] font-semibold leading-tight mb-2">Analytics Dashboard</h3>
           <p class="text-[#8888aa] text-[.85rem] leading-[1.8] flex-1">Dashboard visualisasi data real-time dengan chart interaktif, filter dinamis, dan sistem laporan otomatis.</p>
-          <div class="flex flex-wrap gap-1.5 my-3">
+          <div class="project-tags flex flex-wrap">
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">React</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">D3.js</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">FastAPI</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">PostgreSQL</span>
           </div>
-          <div class="flex gap-4 pt-3 border-t border-white/[0.06]">
-            <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg> Live Demo</a>
-            <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77A5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg> GitHub</a>
-          </div>
+          <div class="project-actions flex border-t border-white/[0.06]"><span class="project-link-note">Tautan demo dan kode belum tersedia.</span></div>
         </div>
       </div>
 
       <!-- AI CHAT -->
       <div class="proj-card bg-[#10101e] border border-white/[0.06] rounded-xl overflow-hidden rv d3" data-category="ai">
-        <div class="h-[250px] overflow-hidden">
+        <div class="project-preview">
           <div class="proj-thumb-inner w-full h-full flex items-center justify-center p-8" style="background:linear-gradient(160deg,#0e0818,#060312);">
             <div class="max-w-[320px] w-full bg-[#0d1117] rounded-md overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)]" style="transform:perspective(600px) rotateX(2deg);">
               <div class="flex items-center gap-1 px-2 py-1" style="background:#161b22;">
@@ -294,26 +294,23 @@
             </div>
           </div>
         </div>
-        <div class="p-6 flex flex-col flex-1">
+        <div class="project-body">
           <div class="font-mono text-[.67rem] tracking-[.1em] text-[#5a5a78] mb-2">03 · AI Integration</div>
           <h3 class="font-serif text-[1.2rem] font-semibold leading-tight mb-2">AI Chat Application</h3>
           <p class="text-[#8888aa] text-[.85rem] leading-[1.8] flex-1">Aplikasi chat berbasis AI dengan kemampuan multi-turn conversation, analisis sentimen, dan konteks percakapan yang persisten.</p>
-          <div class="flex flex-wrap gap-1.5 my-3">
+          <div class="project-tags flex flex-wrap">
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Python</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">OpenAI</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Next.js</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">LangChain</span>
           </div>
-          <div class="flex gap-4 pt-3 border-t border-white/[0.06]">
-            <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg> Live Demo</a>
-            <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77A5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg> GitHub</a>
-          </div>
+          <div class="project-actions flex border-t border-white/[0.06]"><span class="project-link-note">Tautan demo dan kode belum tersedia.</span></div>
         </div>
       </div>
 
       <!-- COFFEESPACE -->
       <div class="proj-card bg-[#10101e] border border-white/[0.06] rounded-xl overflow-hidden rv d4" data-category="web">
-        <div class="h-[250px] overflow-hidden">
+        <div class="project-preview">
           <div class="proj-thumb-inner w-full h-full flex items-center justify-center p-8" style="background:linear-gradient(135deg,#fdf3e3 0%,#f7e3c3 100%);">
             <div class="max-w-[330px] w-full bg-white rounded-md overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.55)]" style="transform:perspective(600px) rotateX(2deg);">
               <div class="flex items-center gap-1 px-2 py-1" style="background:#ece6da;">
@@ -355,26 +352,23 @@
             </div>
           </div>
         </div>
-        <div class="p-6 flex flex-col flex-1">
+        <div class="project-body">
           <div class="font-mono text-[.67rem] tracking-[.1em] text-[#5a5a78] mb-2">04 · Web App</div>
           <h3 class="font-serif text-[1.2rem] font-semibold leading-tight mb-2">CoffeeSpace — Modern Coffee Shop Web App</h3>
           <p class="text-[#8888aa] text-[.85rem] leading-[1.8] flex-1">Platform aplikasi web interaktif untuk coffee shop modern dengan antarmuka elegan, menu digital, sistem pemesanan online, dan program loyalty/rewards pelanggan.</p>
-          <div class="flex flex-wrap gap-1.5 my-3">
+          <div class="project-tags flex flex-wrap">
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">HTML5</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">CSS3</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">JavaScript</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Vercel</span>
           </div>
-          <div class="flex gap-4 pt-3 border-t border-white/[0.06]">
-            <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg> Live Demo</a>
-            <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77A5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg> GitHub</a>
-          </div>
+          <div class="project-actions flex border-t border-white/[0.06]"><span class="project-link-note">Tautan demo dan kode belum tersedia.</span></div>
         </div>
       </div>
 
       <!-- NUSANTARA TECH -->
       <div class="proj-card bg-[#10101e] border border-white/[0.06] rounded-xl overflow-hidden rv d5" data-category="web">
-        <div class="h-[250px] overflow-hidden">
+        <div class="project-preview">
           <div class="proj-thumb-inner w-full h-full flex items-center justify-center p-8" style="background:linear-gradient(160deg,#0a1220,#0b1f3a);">
             <div class="max-w-[330px] w-full bg-[#0d1424] rounded-md overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)]" style="transform:perspective(600px) rotateX(2deg);">
               <div class="flex items-center gap-1 px-2 py-1" style="background:#111a2e;border-bottom:1px solid rgba(59,130,246,0.12);">
@@ -410,26 +404,23 @@
             </div>
           </div>
         </div>
-        <div class="p-6 flex flex-col flex-1">
+        <div class="project-body">
           <div class="font-mono text-[.67rem] tracking-[.1em] text-[#5a5a78] mb-2">05 · Web App · Company Profile</div>
           <h3 class="font-serif text-[1.2rem] font-semibold leading-tight mb-2">Nusantara Tech</h3>
           <p class="text-[#8888aa] text-[.85rem] leading-[1.8] flex-1">Website profil perusahaan agen transformasi digital yang menampilkan solusi teknologi modern, layanan pengembangan software, dan portofolio produk.</p>
-          <div class="flex flex-wrap gap-1.5 my-3">
+          <div class="project-tags flex flex-wrap">
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Python</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Django</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">HTML5</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">CSS3</span>
           </div>
-          <div class="flex gap-4 pt-3 border-t border-white/[0.06]">
-            <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg> Live Demo</a>
-            <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77A5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg> GitHub</a>
-          </div>
+          <div class="project-actions flex border-t border-white/[0.06]"><span class="project-link-note">Tautan demo dan kode belum tersedia.</span></div>
         </div>
       </div>
 
       <!-- APOTEK SEHAT -->
       <div class="proj-card bg-[#10101e] border border-white/[0.06] rounded-xl overflow-hidden rv d6" data-category="web">
-        <div class="h-[250px] overflow-hidden">
+        <div class="project-preview">
           <div class="proj-thumb-inner w-full h-full flex items-center justify-center p-8" style="background:linear-gradient(135deg,#e6f6ee 0%,#d0efdf 100%);">
             <div class="max-w-[330px] w-full bg-white rounded-md overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)]" style="transform:perspective(600px) rotateX(2deg);">
               <div class="flex items-center gap-1 px-2 py-1" style="background:#e3efe9;">
@@ -469,26 +460,23 @@
             </div>
           </div>
         </div>
-        <div class="p-6 flex flex-col flex-1">
+        <div class="project-body">
           <div class="font-mono text-[.67rem] tracking-[.1em] text-[#5a5a78] mb-2">06 · Web App · Healthcare</div>
           <h3 class="font-serif text-[1.2rem] font-semibold leading-tight mb-2">Apotek Sehat</h3>
           <p class="text-[#8888aa] text-[.85rem] leading-[1.8] flex-1">Sistem informasi dan platform layanan kesehatan/apotek digital terpadu untuk manajemen katalog obat, reservasi konsultasi, dan penyediaan informasi obat tepercaya.</p>
-          <div class="flex flex-wrap gap-1.5 my-3">
+          <div class="project-tags flex flex-wrap">
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Python</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Django</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">HTML5</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Bootstrap</span>
           </div>
-          <div class="flex gap-4 pt-3 border-t border-white/[0.06]">
-            <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg> Live Demo</a>
-            <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77A5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg> GitHub</a>
-          </div>
+          <div class="project-actions flex border-t border-white/[0.06]"><span class="project-link-note">Tautan demo dan kode belum tersedia.</span></div>
         </div>
       </div>
 
       <!-- SIKAMLING DIGITAL -->
       <div class="proj-card bg-[#10101e] border border-white/[0.06] rounded-xl overflow-hidden rv d7" data-category="web">
-        <div class="h-[250px] overflow-hidden">
+        <div class="project-preview">
           <div class="proj-thumb-inner w-full h-full flex items-center justify-center p-8" style="background:linear-gradient(160deg,#1a0c0c,#331414);">
             <div class="max-w-[330px] w-full bg-[#161010] rounded-md overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)]" style="transform:perspective(600px) rotateX(2deg);">
               <div class="flex items-center gap-1 px-2 py-1" style="background:#1e1313;border-bottom:1px solid rgba(248,113,113,0.14);">
@@ -524,28 +512,25 @@
             </div>
           </div>
         </div>
-        <div class="p-6 flex flex-col flex-1">
+        <div class="project-body">
           <div class="font-mono text-[.67rem] tracking-[.1em] text-[#5a5a78] mb-2">07 · Web App · Security</div>
           <h3 class="font-serif text-[1.2rem] font-semibold leading-tight mb-2">SiKamling Digital</h3>
           <p class="text-[#8888aa] text-[.85rem] leading-[1.8] flex-1">Platform digital keamanan lingkungan untuk menghubungkan warga, perangkat gampong/desa, dan kepolisian dalam hal jadwal ronda, pelaporan kamtibmas, serta tanggap darurat real-time.</p>
-          <div class="flex flex-wrap gap-1.5 my-3">
+          <div class="project-tags flex flex-wrap">
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">React</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Vite</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">JavaScript</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Tailwind</span>
             <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Supabase</span>
           </div>
-          <div class="flex gap-4 pt-3 border-t border-white/[0.06]">
-            <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg> Live Demo</a>
-            <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77A5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg> GitHub</a>
-          </div>
+          <div class="project-actions flex border-t border-white/[0.06]"><span class="project-link-note">Tautan demo dan kode belum tersedia.</span></div>
         </div>
       </div>
 
       <!-- SUGES -->
-      <div class="proj-card bg-[#10101e] border border-white/[0.06] rounded-xl overflow-hidden lg:col-span-2 rv d8" data-category="web">
-        <div class="lg:grid lg:grid-cols-[1fr_1.2fr]">
-          <div class="h-[320px] overflow-hidden">
+      <div class="proj-card bg-[#10101e] border border-white/[0.06] rounded-xl overflow-hidden lg:col-span-2 rv d8" data-category="web mobile">
+        <div class="project-layout lg:grid lg:grid-cols-[1fr_1.2fr]">
+          <div class="project-preview">
             <div class="proj-thumb-inner w-full h-full flex items-center justify-center p-8" style="background:linear-gradient(135deg,#e7f6ee 0%,#d9f2e4 50%,#cdeff0 100%);">
               <div class="max-w-[380px] w-full bg-white rounded-md overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)]" style="transform:perspective(600px) rotateX(2deg);">
                 <div class="flex items-center gap-1 px-2 py-1" style="background:#e2eee8;">
@@ -581,24 +566,22 @@
               </div>
             </div>
           </div>
-          <div class="p-8 flex flex-col">
+          <div class="project-body">
             <div class="font-mono text-[.67rem] tracking-[.1em] text-[#5a5a78] mb-2">08 · Web App · Mobile</div>
             <h3 class="font-serif text-[1.3rem] font-semibold leading-tight mb-3">SuGes — Suara Digital Desa</h3>
             <p class="text-[#8888aa] text-[.87rem] leading-[1.85] flex-1">Aplikasi partisipasi publik desa yang memfasilitasi transparansi tata kelola, penyampaian aspirasi, pengaduan masyarakat, serta pemungutan suara digital warga gampong/desa secara real-time dan terverifikasi.</p>
-            <div class="flex flex-wrap gap-1.5 my-4">
+            <div class="project-tags flex flex-wrap">
               <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Flutter</span>
               <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">React Native</span>
               <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Firebase</span>
               <span class="px-2.5 py-1 rounded-sm border border-[rgba(200,169,109,0.2)] bg-[rgba(200,169,109,0.08)] font-mono text-[.7rem] text-[#c8a96d]">Supabase</span>
             </div>
-            <div class="flex gap-4 pt-3 border-t border-white/[0.06]">
-              <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg> Live Demo</a>
-              <a href="#" class="flex items-center gap-1.5 text-[.78rem] text-[#5a5a78] no-underline hover:text-[#c8a96d] transition-colors"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77A5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg> GitHub</a>
-            </div>
+            <div class="project-actions flex border-t border-white/[0.06]"><span class="project-link-note">Tautan demo dan kode belum tersedia.</span></div>
           </div>
         </div>
       </div>
     </div>
+    <div id="projectEmpty" class="project-empty" hidden>Tidak ada proyek yang cocok. Coba kata kunci atau kategori lain.<button id="resetProjects" type="button">Tampilkan semua proyek</button></div>
   </div>
 </section>
 
@@ -624,7 +607,6 @@ window.addEventListener('scroll',()=>{const p=window.scrollY/(document.documentE
 window.addEventListener('scroll',()=>{document.querySelectorAll('.parallax-bg').forEach(el=>{const s=parseFloat(el.dataset.speed||'0.3');el.style.transform=`translateY(${window.scrollY*s}px)`;});},{passive:true});
 /* ── Reveal ── */
 const revObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');revObs.unobserve(e.target);}});},{threshold:0.08}); document.querySelectorAll('.rv').forEach(el=>revObs.observe(el));
-document.querySelectorAll('.filter-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');const filter=btn.dataset.filter;document.querySelectorAll('.proj-card').forEach(card=>{const cat=card.dataset.category;if(filter==='all'||cat===filter){card.style.display='';card.style.opacity='1';}else{card.style.display='none';}});});});
 </script>
 </body>
 </html>

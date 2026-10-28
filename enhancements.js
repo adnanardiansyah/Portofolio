@@ -62,4 +62,45 @@ document.addEventListener('DOMContentLoaded', () => {
     sync();
     new MutationObserver(sync).observe(button, { attributes: true, attributeFilter: ['class'] });
   });
+
+  const projectGrid = document.getElementById('projectGrid');
+  const search = document.getElementById('projectSearch');
+  if (projectGrid && search) {
+    const cards = [...projectGrid.querySelectorAll('.proj-card')];
+    const filters = [...document.querySelectorAll('.filter-btn')];
+    const count = document.getElementById('projectCount');
+    const empty = document.getElementById('projectEmpty');
+    let category = 'all';
+    const normalize = value => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    const entries = cards.map(card => ({
+      card,
+      text: normalize(card.querySelector('.project-body')?.textContent || card.textContent),
+      categories: (card.dataset.category || '').split(/\s+/)
+    }));
+    function updateProjects() {
+      const query = normalize(search.value);
+      let visible = 0;
+      entries.forEach(({ card, text, categories }) => {
+        const show = (category === 'all' || categories.includes(category)) && text.includes(query);
+        card.hidden = !show;
+        if (show) { visible++; card.classList.add('in'); }
+      });
+      count.textContent = `${visible} dari ${cards.length} proyek`;
+      empty.hidden = visible !== 0;
+      filters.forEach(button => {
+        const selected = button.dataset.filter === category;
+        button.classList.toggle('on', selected);
+        button.setAttribute('aria-pressed', String(selected));
+      });
+    }
+    search.addEventListener('input', updateProjects);
+    filters.forEach(button => button.addEventListener('click', () => {
+      category = button.dataset.filter;
+      updateProjects();
+    }));
+    document.getElementById('resetProjects').addEventListener('click', () => {
+      category = 'all'; search.value = ''; updateProjects(); search.focus();
+    });
+    updateProjects();
+  }
 });
