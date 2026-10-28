@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portofolio Adnan Ardiansyah</title>
 <meta name="description" content="Full-Stack Developer & UI/UX Designer dari Medan, Indonesia. Spesialis React, Next.js, Node.js, dan SaaS development.">
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="dist/output.css">
@@ -16,39 +16,7 @@
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-<script>
-  tailwind.config = {
-    darkMode: 'class',
-    theme: {
-      extend: {
-        fontFamily: {
-          serif:  ['Playfair Display', 'Georgia', 'serif'],
-          sans:   ['Outfit', 'sans-serif'],
-          mono:   ['JetBrains Mono', 'monospace'],
-        },
-        colors: {
-          gold: {
-            DEFAULT: '#c8a96d',
-            light:   '#e8cc94',
-            dark:    '#9a7035',
-            muted:   'rgba(200,169,109,0.12)',
-          },
-        },
-        animation: {
-          'fade-up':   'fadeUp 0.75s cubic-bezier(0.16,1,0.3,1) forwards',
-          'pulse-dot': 'pulseDot 2s ease-in-out infinite',
-          'nav-in':    'navIn 0.7s cubic-bezier(0.16,1,0.3,1) both',
-          'spin-slow': 'spin 1s linear infinite',
-        },
-        keyframes: {
-          fadeUp:   { from:{ opacity:'0', transform:'translateY(28px)' }, to:{ opacity:'1', transform:'none' } },
-          pulseDot: { '0%,100%':{ opacity:'1',transform:'scale(1)' }, '50%':{ opacity:'.4',transform:'scale(.7)' } },
-          navIn:    { from:{ transform:'translateY(-100%)',opacity:'0' }, to:{ transform:'none',opacity:'1' } },
-        },
-      },
-    },
-  }
-</script>
+
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -129,8 +97,11 @@ body.light-mode .glass { background:rgba(255,255,255,0.6); border-color:rgba(0,0
 .typed-cursor { color:#c8a96d; font-size:1.4rem; opacity:0.8; animation:blink 1s step-end infinite; font-weight:300; }
 @keyframes blink { 50%{opacity:0} }
 </style>
+<link rel="stylesheet" href="enhancements.css">
+<script src="enhancements.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#hero">Lewati navigasi</a>
 
 <div id="scrollProgress"></div>
 <div id="cur-dot"></div>
@@ -180,7 +151,7 @@ body.light-mode .glass { background:rgba(255,255,255,0.6); border-color:rgba(0,0
   <a href="contact.html" class="flex justify-between items-center py-4 text-[#8888aa] text-base no-underline hover:text-[#c8a96d] hover:pl-2 transition-all">Contact <span class="opacity-35">→</span></a>
 </div>
 
-<section id="hero" class="relative z-10 min-h-screen flex items-center px-10 md:px-20 pt-[90px] pb-16">
+<section tabindex="-1" id="hero" class="relative z-10 min-h-screen flex items-center px-10 md:px-20 pt-[90px] pb-16">
   <div class="float-shape float-shape-1"></div>
   <div class="float-shape float-shape-2"></div>
   <div class="float-shape float-shape-3"></div>
@@ -198,7 +169,7 @@ body.light-mode .glass { background:rgba(255,255,255,0.6); border-color:rgba(0,0
       </h1>
       <div class="rv d1 mt-6">
         <span class="font-sans font-light text-[1.3rem] md:text-[1.6rem] text-[#5a5a78]">I build </span>
-        <span class="font-sans font-medium text-[1.3rem] md:text-[1.6rem] text-[#c8a96d]" id="typed-text"></span>
+        <span class="font-sans font-medium text-[1.3rem] md:text-[1.6rem] text-[#c8a96d]" id="typed-text">Full-Stack Developer.</span>
       </div>
       <p class="rv d2 text-[#8888aa] text-base leading-[1.9] max-w-[440px] mt-6">
         Crafting <strong class="text-[#f0f0f5] font-medium">digital experiences</strong> that merge design &amp; engineering —
@@ -462,8 +433,8 @@ body.light-mode .glass { background:rgba(255,255,255,0.6); border-color:rgba(0,0
 </footer>
 
 <script>
-(function(){ const s=localStorage.getItem('theme')||'dark'; if(s==='light'){document.body.classList.add('light-mode');document.getElementById('icon-moon').classList.add('hidden');document.getElementById('icon-sun').classList.remove('hidden');} })();
-document.getElementById('themeToggle').addEventListener('click',()=>{const l=document.body.classList.toggle('light-mode');localStorage.setItem('theme',l?'light':'dark');document.getElementById('icon-moon').classList.toggle('hidden',l);document.getElementById('icon-sun').classList.toggle('hidden',!l);});
+(function(){ const s=portfolioStorage.getItem('theme')||'dark'; if(s==='light'){document.body.classList.add('light-mode');document.getElementById('icon-moon').classList.add('hidden');document.getElementById('icon-sun').classList.remove('hidden');} })();
+document.getElementById('themeToggle').addEventListener('click',()=>{const l=document.body.classList.toggle('light-mode');portfolioStorage.setItem('theme',l?'light':'dark');document.getElementById('icon-moon').classList.toggle('hidden',l);document.getElementById('icon-sun').classList.toggle('hidden',!l);});
 (function(){const d=document.getElementById('cur-dot'),r=document.getElementById('cur-ring');if(!d||window.matchMedia('(pointer:coarse)').matches)return;let mx=-100,my=-100,rx=-100,ry=-100;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;d.style.left=mx+'px';d.style.top=my+'px';});(function a(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(a);})();document.querySelectorAll('a,button,.svc-card,.proj-card,.hstat').forEach(e=>{e.addEventListener('mouseenter',()=>document.body.classList.add('cursor-h'));e.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-h'));});})();
 window.addEventListener('scroll',()=>{const n=document.getElementById('nav');n.style.backdropFilter=window.scrollY>50?'blur(28px) saturate(1.8)':'blur(20px) saturate(1.6)';},{passive:true});
 const ham=document.getElementById('hamburger'),mM=document.getElementById('mobileMenu'),h1=document.getElementById('hb1'),h2=document.getElementById('hb2'),h3=document.getElementById('hb3');let mO=false;ham.addEventListener('click',()=>{mO=!mO;mM.style.display=mO?'flex':'none';document.body.style.overflow=mO?'hidden':'';if(mO){h1.style.transform='rotate(45deg) translate(5px,5px)';h2.style.opacity='0';h2.style.transform='scaleX(0)';h3.style.transform='rotate(-45deg) translate(5px,-5px)';}else{h1.style.transform='';h2.style.opacity='';h2.style.transform='';h3.style.transform='';}});mM.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{mO=false;mM.style.display='none';document.body.style.overflow='';h1.style.transform='';h2.style.opacity='';h2.style.transform='';h3.style.transform='';});});
@@ -474,19 +445,19 @@ window.addEventListener('scroll',()=>{document.querySelectorAll('.parallax-bg').
 const cObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;const t=parseInt(el.dataset.count);const sf=el.dataset.suffix||'+';let c=0;const st=t/(900/16);const id=setInterval(()=>{c=Math.min(c+st,t);el.textContent=Math.round(c)+sf;if(c>=t)clearInterval(id);},16);cObs.unobserve(el);});},{threshold:0.5});document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
 
 /* ── GSAP (guarded) ── */
-if (typeof gsap !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
 }
 const isTouch = window.matchMedia('(pointer:coarse)').matches;
 const heroRV = document.querySelectorAll('#hero .rv');
-if (isTouch || typeof gsap === 'undefined') {
+if (isTouch || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   heroRV.forEach(el => el.classList.add('in'));
 } else {
   gsap.set(heroRV, { opacity: 0, y: 60, scale: 0.96, filter: 'blur(4px)' });
   const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
   heroTL.to(heroRV, { y: 0, opacity: 1, scale: 1, filter: 'blur(0)', duration: 1.1, stagger: 0.15 });
 }
-if (typeof gsap !== 'undefined') {
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   document.querySelectorAll('.rv').forEach(el => {
     if (el.closest('#hero')) return;
     gsap.fromTo(el,
@@ -509,13 +480,13 @@ if (typeof gsap !== 'undefined') {
 }
 
 /* ── Typed.js ── */
-new Typed('#typed-text', {
+if (typeof Typed !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) new Typed('#typed-text', {
   strings: ['Full-Stack Developer.', 'UI/UX Designer.', 'SaaS Builder.', 'Problem Solver.'],
   typeSpeed: 60, backSpeed: 40, backDelay: 1800, loop: true, cursorChar: ''
 });
 
 /* ── Vanilla Tilt ── */
-if (!isTouch) {
+if (!isTouch && typeof VanillaTilt !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   VanillaTilt.init(document.querySelectorAll('[data-tilt]'), { max: 8, speed: 400, glare: true, 'max-glare': 0.15, scale: 1.02 });
 }
 

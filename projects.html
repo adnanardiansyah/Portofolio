@@ -5,43 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects — Adnan Ardiansyah</title>
 <meta name="description" content="Portfolio proyek Adnan Ardiansyah — SaaS, Web App, AI, dan lebih banyak lagi.">
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="dist/output.css">
-<script>
-  tailwind.config = {
-    darkMode: 'class',
-    theme: {
-      extend: {
-        fontFamily: {
-          serif:  ['Playfair Display', 'Georgia', 'serif'],
-          sans:   ['Outfit', 'sans-serif'],
-          mono:   ['JetBrains Mono', 'monospace'],
-        },
-        colors: {
-          gold: {
-            DEFAULT: '#c8a96d',
-            light:   '#e8cc94',
-            dark:    '#9a7035',
-            muted:   'rgba(200,169,109,0.12)',
-          },
-        },
-        animation: {
-          'fade-up':   'fadeUp 0.75s cubic-bezier(0.16,1,0.3,1) forwards',
-          'pulse-dot': 'pulseDot 2s ease-in-out infinite',
-          'nav-in':    'navIn 0.7s cubic-bezier(0.16,1,0.3,1) both',
-          'spin-slow': 'spin 1s linear infinite',
-        },
-        keyframes: {
-          fadeUp:   { from:{ opacity:'0', transform:'translateY(28px)' }, to:{ opacity:'1', transform:'none' } },
-          pulseDot: { '0%,100%':{ opacity:'1',transform:'scale(1)' }, '50%':{ opacity:'.4',transform:'scale(.7)' } },
-          navIn:    { from:{ transform:'translateY(-100%)',opacity:'0' }, to:{ transform:'none',opacity:'1' } },
-        },
-      },
-    },
-  }
-</script>
+
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -88,8 +56,11 @@
   body.light-mode .bg-\[#080810\] { background: #f8f7f2 !important; }
   body.light-mode .marquee-section { background: rgba(238,234,224,0.6) !important; }
 </style>
+<link rel="stylesheet" href="enhancements.css">
+<script src="enhancements.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Lewati navigasi</a>
 
 <div id="scrollProgress"></div>
 <div id="cur-dot"></div>
@@ -179,7 +150,7 @@
   </div>
 </div>
 
-<section class="relative z-10 py-24 px-10 md:px-20">
+<section id="main-content" tabindex="-1" class="relative z-10 py-24 px-10 md:px-20">
   <div class="max-w-[1280px] mx-auto">
     <div class="rv flex gap-2 flex-wrap mb-8">
       <button class="filter-btn on px-4 py-1.5 rounded-full font-mono text-[.72rem] tracking-[.08em] uppercase border border-white/[0.1] bg-transparent text-[#8888aa] cursor-pointer" data-filter="all">All</button>
@@ -642,8 +613,8 @@
 </footer>
 
 <script>
-(function(){ const saved = localStorage.getItem('theme') || 'dark'; if (saved === 'light') { document.body.classList.add('light-mode'); document.getElementById('icon-moon').classList.add('hidden'); document.getElementById('icon-sun').classList.remove('hidden'); } })();
-document.getElementById('themeToggle').addEventListener('click', () => { const isLight = document.body.classList.toggle('light-mode'); localStorage.setItem('theme', isLight ? 'light' : 'dark'); document.getElementById('icon-moon').classList.toggle('hidden', isLight); document.getElementById('icon-sun').classList.toggle('hidden', !isLight); });
+(function(){ const saved = portfolioStorage.getItem('theme') || 'dark'; if (saved === 'light') { document.body.classList.add('light-mode'); document.getElementById('icon-moon').classList.add('hidden'); document.getElementById('icon-sun').classList.remove('hidden'); } })();
+document.getElementById('themeToggle').addEventListener('click', () => { const isLight = document.body.classList.toggle('light-mode'); portfolioStorage.setItem('theme', isLight ? 'light' : 'dark'); document.getElementById('icon-moon').classList.toggle('hidden', isLight); document.getElementById('icon-sun').classList.toggle('hidden', !isLight); });
 (function(){ const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring'); if(!dot||window.matchMedia('(pointer:coarse)').matches) return; let mx=-100,my=-100,rx=-100,ry=-100; document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';}); (function anim(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})(); document.querySelectorAll('a,button,.proj-card,.filter-btn').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-h'));el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-h'));}); })();
 window.addEventListener('scroll',()=>{const nav=document.getElementById('nav');nav.style.backdropFilter=window.scrollY>50?'blur(28px) saturate(1.8)':'blur(20px) saturate(1.6)';},{passive:true});
 const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu'),hb1=document.getElementById('hb1'),hb2=document.getElementById('hb2'),hb3=document.getElementById('hb3'); let menuOpen=false; hamburger.addEventListener('click',()=>{menuOpen=!menuOpen;mobileMenu.style.display=menuOpen?'flex':'none';document.body.style.overflow=menuOpen?'hidden':'';if(menuOpen){hb1.style.transform='rotate(45deg) translate(5px,5px)';hb2.style.opacity='0';hb2.style.transform='scaleX(0)';hb3.style.transform='rotate(-45deg) translate(5px,-5px)';}else{hb1.style.transform='';hb2.style.opacity='';hb2.style.transform='';hb3.style.transform='';}}); mobileMenu.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{menuOpen=false;mobileMenu.style.display='none';document.body.style.overflow='';hb1.style.transform='';hb2.style.opacity='';hb2.style.transform='';hb3.style.transform='';});});

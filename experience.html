@@ -5,50 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Experience — Adnan Ardiansyah</title>
 <meta name="description" content="Pengalaman kerja dan pendidikan Adnan Ardiansyah — full-stack developer dan UI/UX enthusiast.">
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="dist/output.css">
-<script>
-  tailwind.config = {
-    darkMode: 'class',
-    theme: {
-      extend: {
-        fontFamily: {
-          serif:  ['Playfair Display', 'Georgia', 'serif'],
-          sans:   ['Outfit', 'sans-serif'],
-          mono:   ['JetBrains Mono', 'monospace'],
-        },
-        colors: {
-          gold: {
-            DEFAULT: '#c8a96d',
-            light:   '#e8cc94',
-            dark:    '#9a7035',
-            muted:   'rgba(200,169,109,0.12)',
-          },
-          dark: {
-            bg:    '#080810',
-            bg2:   '#0d0d18',
-            card:  '#10101e',
-            card2: '#141428',
-          },
-        },
-        animation: {
-          'fade-up':    'fadeUp 0.75s cubic-bezier(0.16,1,0.3,1) forwards',
-          'pulse-dot':  'pulseDot 2s ease-in-out infinite',
-          'marquee':    'marquee 22s linear infinite',
-          'nav-in':     'navIn 0.7s cubic-bezier(0.16,1,0.3,1) both',
-        },
-        keyframes: {
-          fadeUp:   { from:{ opacity:'0', transform:'translateY(28px)' }, to:{ opacity:'1', transform:'none' } },
-          pulseDot: { '0%,100%':{ opacity:'1', transform:'scale(1)' }, '50%':{ opacity:'.4', transform:'scale(.7)' } },
-          marquee:  { from:{ transform:'translateX(0)' }, to:{ transform:'translateX(-50%)' } },
-          navIn:    { from:{ transform:'translateY(-100%)', opacity:'0' }, to:{ transform:'none', opacity:'1' } },
-        },
-      },
-    },
-  }
-</script>
+
 <style>
   /* Theme apply before paint */
   :root { color-scheme: dark; }
@@ -143,8 +104,11 @@
   body.light-mode .bg-\[\#080810\] { background: #f8f7f2 !important; }
   body.light-mode #mobileMenu { background: rgba(248,247,242,0.97) !important; }
 </style>
+<link rel="stylesheet" href="enhancements.css">
+<script src="enhancements.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#experience">Lewati navigasi</a>
 
 <div id="scrollProgress"></div>
 <!-- Cursor -->
@@ -269,7 +233,7 @@
 </div>
 
 <!-- ═══════════ EXPERIENCE SECTION ═══════════ -->
-<section id="experience" class="relative z-10 py-24 px-10 md:px-20">
+<section tabindex="-1" id="experience" class="relative z-10 py-24 px-10 md:px-20">
   <div class="max-w-[1280px] mx-auto">
 
     <!-- Section label -->
@@ -829,7 +793,7 @@
 <script>
 /* ── Theme ── */
 (function(){
-  const saved = localStorage.getItem('theme') || 'dark';
+  const saved = portfolioStorage.getItem('theme') || 'dark';
   if (saved === 'light') {
     document.body.classList.add('light-mode');
     document.getElementById('icon-moon').classList.add('hidden');
@@ -839,7 +803,7 @@
 
 document.getElementById('themeToggle').addEventListener('click', () => {
   const isLight = document.body.classList.toggle('light-mode');
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  portfolioStorage.setItem('theme', isLight ? 'light' : 'dark');
   document.getElementById('icon-moon').classList.toggle('hidden', isLight);
   document.getElementById('icon-sun').classList.toggle('hidden', !isLight);
 });
