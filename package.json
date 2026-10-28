@@ -4,21 +4,22 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "build": "npx tailwindcss -i input.css -o dist/output.css --minify",
+    "build": "node scripts/render-projects.cjs && tailwindcss -i input.css -o dist/output.css --minify",
+    "projects": "node scripts/render-projects.cjs",
     "dev": "npx tailwindcss -i input.css -o dist/output.css --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adnanadriansyah/Portofolio.git"
+    "url": "git+https://github.com/adnanardiansyah/Portofolio.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/adnanadriansyah/Portofolio/issues"
+    "url": "https://github.com/adnanardiansyah/Portofolio/issues"
   },
-  "homepage": "https://github.com/adnanadriansyah/Portofolio#readme",
+  "homepage": "https://github.com/adnanardiansyah/Portofolio#readme",
   "devDependencies": {
     "tailwindcss": "^3.4.19"
   }
